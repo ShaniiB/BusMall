@@ -2,7 +2,8 @@
 // begin sanity testing
 console.log('Sanity');
 //brief styling to body
-document.body.style.backgroundColor('salmon');
+const body = document.querySelector('body');
+body.style.backgroundColor = 'salmon';
 // added title to page
 const text = document.querySelector('title'); // Header One
 
@@ -24,8 +25,7 @@ let allClicks = 0;
 const clickLimit = 3;
 
 /*
-let
-button.onclick = function(){  
+let button.onclick = function(){  
 }
 */
 
@@ -34,7 +34,8 @@ button.onclick = function(){
 
 
 
- // begin fandomObjects array begin
+
+ // begin fandomObjects array list
 let fandomObjects = [
     new fandomAlbum('name','sub','./images/2.jpg'),
     new fandomAlbum('name','sub','./images/3.png'), 
@@ -53,6 +54,13 @@ let fandomObjects = [
       new ('','','') 
 */ 
 ];
+
+// array loop functionality
+for (let otaku = 0; otaku < fandomObjects.lengths; otaku++ ) {
+    console.log("fandomObjects");
+}
+
+
 // ref. to elements
 const fanHandler = document.getElementById('fanomHandler');
 const fanHeader = document.getElementById('fandomHeader');
