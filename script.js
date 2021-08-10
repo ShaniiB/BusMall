@@ -19,21 +19,15 @@ constructor(name, sub, imgSrc) {
  };
 }   
 // add the variables & creating button functionality here
-let imagesOne = null;
-let imagesTwo = null;
+let clickOne = null;
+let clickTwo = null;
 let allClicks = 0;
-const clickLimit = 3;
+const clickLimit = 8;
 
 /*
 let button.onclick = function(){  
 }
 */
-
-// this function will generate random pictures from the object list
-// generate random images by utilizing the math.floor() function
-
-
-
 
  // begin fandomObjects array list
 let fandomObjects = [
@@ -56,13 +50,25 @@ let fandomObjects = [
 ];
 
 // array loop functionality
-for (let otaku = 0; otaku < fandomObjects.lengths; otaku++ ) {
-    console.log("fandomObjects");
+for (let otaku = 0; otaku < fandomObjects.length; otaku++ ) {
+    console.log(fandomObjects);
 }
+
+// this function will generate random pictures from the object list
+// generate random images by utilizing the math.floor() function
+
+let anoFanDom = function() { // pick from the 4 images
+    
+    oneFandomOtaku = math.floor(math.random()*fandomObjects.length);
+    twoFandomOtaku = math.floor(math.random()*fandomObjects.length);
+}
+// 
+    fanPicOne.src = fandomObjects[oneFandomOtaku];
+    fanPicTwo.src = fandomObjects[oneFandomOtaku];
 
 
 // ref. to elements
-const fanHandler = document.getElementById('fanomHandler');
+const fanHandler = document.getElementById('fandomHandler');
 const fanHeader = document.getElementById('fandomHeader');
 const fanFooter = document.getElementById('fandomFooter')
 const fanResult = document.getElementById('resultsArea');

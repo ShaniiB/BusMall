@@ -1,0 +1,16 @@
+.img {
+    width: 200px;
+}
+
+#fandomHandler {
+    position: absolute;
+    top: 40px;
+    left: 550px;
+    background-color: antiquewhite;
+    height: 725px;
+    width: 700px;
+}
+
+#onefan {
+   width: 200px;  
+}

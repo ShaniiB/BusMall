@@ -10,7 +10,7 @@
 ## -//- DAY ZERO ,  
 >>
 -- re-created wireframe / added comments | for HTML & to JavaScript, finally added codes
--- added color to page as a test
+-- added color to page as a test (success) , added math.floor -
 
    <center> 
 
