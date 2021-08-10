@@ -32,7 +32,7 @@ let button.onclick = function(){
 
  // begin fandomObjects array list
 let fandomObjects = [
-    new fandomAlbum('name','sub','https://i.imgur.com/2R2yfnW.gif'),
+    new fandomAlbum('name','sub',''),
     new fandomAlbum('name','sub','./images/3.png'), 
     new fandomAlbum('name','sub','./images/4.png'),
     new fandomAlbum('name','sub','./images/5.jpg')
