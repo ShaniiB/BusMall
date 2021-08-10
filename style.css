@@ -1,5 +1,5 @@
-.img {
-    width: 200px;
+img {
+    width: 150px;
 }
 
 #fandomHandler {
@@ -10,13 +10,4 @@
     height: 725px;
     width: 700px;
 }
-
-#onefan {
-   width: 200px;  
-}
-#twofan {
-    width: 200px;  
- }
- #threefan {
-    width: 200px;  
- }
+h2
