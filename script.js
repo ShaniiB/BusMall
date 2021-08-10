@@ -19,8 +19,8 @@ constructor(name, sub, imgSrc) {
  };
 }   
 // add the variables & creating button functionality here
-let clickOne = null;
-let clickTwo = null;
+let clickdOne = null;
+let clickdTwo = null;
 let allClicks = 0;
 const clickLimit = 8;
 
@@ -34,7 +34,7 @@ let fandomObjects = [
     new fandomAlbum('name','sub','./images/2.jpg'),
     new fandomAlbum('name','sub','./images/3.png'), 
     new fandomAlbum('name','sub','./images/4.png'),
-    new fandomAlbum('name','sub','./images/5.jpg'),
+    new fandomAlbum('name','sub','./images/5.jpg')
 /*    
       new ('','','')
       new ('','','') 
@@ -48,24 +48,6 @@ let fandomObjects = [
       new ('','','') 
 */ 
 ];
-
-// array loop functionality
-for (let otaku = 0; otaku < fandomObjects.length; otaku++ ) {
-    console.log(fandomObjects);
-}
-
-// this function will generate random pictures from the object list
-// generate random images by utilizing the math.floor() function
-
-let anoFanDom = function() { // pick from the 4 images
-    
-    oneFandomOtaku = math.floor(math.random()*fandomObjects.length);
-    twoFandomOtaku = math.floor(math.random()*fandomObjects.length);
-}
-// 
-    fanPicOne.src = fandomObjects[oneFandomOtaku];
-    fanPicTwo.src = fandomObjects[oneFandomOtaku];
-
 
 // ref. to elements
 const fanHandler = document.getElementById('fandomHandler');
@@ -84,3 +66,41 @@ const fanNameThree = document.getElementById('name-threefan');
 const fanSubTwoThree = document.getElementById('sub-threefan');
 
 let fanButton = document.getElementById('getResults');
+
+// array loop functionality
+for (let otaku = 0; otaku < fandomObjects.length; otaku++ ) {
+    console.log(fandomObjects);
+}
+
+// this function will generate random pictures from the object list
+// generate random images by utilizing the math.floor() function
+
+let anoFandom = function() { // pick from the 4 images
+    
+let oneOtaku = Math.floor(Math.random()* fandomObjects.length);
+let twoOtaku = Math.floor(Math.random()* fandomObjects.length);
+
+// random pick number 1 from fandomObjects
+    fanNameOne.innerText = fandomObjects[oneOtaku].name;
+    fanSubOne = fandomObjects[oneOtaku].sub;  
+    fanPicOne.src = fandomObjects[oneOtaku].imgSrc;
+    clickdOne = fandomObjects[oneOtaku];
+
+// random pick number 2 from fandomObjects
+    fanNameTwo.innerText = fandomObjects[twoOtaku].name;
+    fanSubTwo.innerText = fandomObjects[twoOtaku].sub;     
+    fanPicTwo.src = fandomObjects[twoOtaku].imgSrc;
+
+// random pick number 3 from fandomObjects
+
+// random pick number 3 from fandomObjects
+
+// 
+};
+// calculating the clicks for the final results
+// event onClicks
+function clickAgeddon() {
+
+} 
+
+anoFandom();
