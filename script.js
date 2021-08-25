@@ -1,10 +1,46 @@
 // do the sanity test.
 console.log('sanity');
-// a little styling through DOM targetted at the Body.
+// styling use DOM Manipulation & reference
 const body = document.querySelector('body');
 body.style.backgroundColor = 'darkseagreen';
+
+// constructor & functionality
+
+// constructor will create images
+
+// image collection
+
+// array for images
+
+// array for objects
+
+
+// adding the math.floor() to trigger the randomizer, make sure between the 4 images - no duplicates
+function beginFandom() {// pick an object from the index, set up your loops
+   oneFandom = math.floor(math.random() * fandomObjects.length);
+ 
+
+
+
+ //add a loop for each picture potentially
+ // make click-a-thon til calculations are completed
+ // results will be given on final click, log in console
+ // implement an onclick display, giving access to the button
+ // that button will upon click will trigger a (potential) onload event
+ // when onload is triggered, load in a graph of their results.
+ // 
+ //
+ //
+ //
+ //
+ //
+ // START CHARTS. JS HERE
+   
+
+   
 // the start of the class, holder of my objects that will be applied to my click-y image-y - beginning to get data worth logging.
-class fandomAlbum {
+
+/*class fandomAlbum {
     clicks = 0;  // keep track of user clicks for results
     optionShown = 0; // totalling how many times the image was shown
     constructor(name, sub, imgSrc) {
@@ -19,7 +55,7 @@ let two = null;
 let three = null;
 let four = null;
 let totalClicks = 0;
-const limitedClicks =0 ; 
+const limitedClicks =0; 
 
 // this index will holw 20 pictures
 let fandomObjects = [
@@ -50,7 +86,9 @@ let fandomObjects = [
 // give a value to my Objects using a function.  
 for (let otaku = 0; otaku < fandomObjects.length; otaku++) {
     console.log(fandomObjects[0]);
-}   
+}  
+
+
 // set for picture one
 picOne.src = fandomObjects[0].imgSrc;
 subOne.innerText = fandomObjects[0].name;
@@ -63,25 +101,6 @@ subThree.innerText = fandomObjects[2].name;
 // set for picture four
 picFour.src = fandomObjects[3].imgSrc;
 subFour.innerText = fandomObjects[3].name;
+================================================== OLD CODE  8/25
 
-// adding the math.floor() to trigger the randomizer, make sure between the 4 images - no duplicates
-function beginFandom() {// pick an object from the index, set up your loops
-   oneFandom = math.floor(math.random() * fandomObjects.length);
-
- // add a loop for each picture potentially?
- // make click-a-thon til calculations are completed
- // results will be given on final click, log in console
- // implement an onclick display, giving access to the button
- // that button will upon click will trigger a (potential) onload event
- // when onload is triggered, load in a graph of their results.
- //
- //
- //
- //
- //
- //
- // START CHARTS. JS HERE
-   
-
-   
-}
+*/ 
