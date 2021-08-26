@@ -1,60 +1,42 @@
 <!DOCTYPE html>
     <html lang="en" dir="ltr">
-     <link rel="stylesheet" href="./style.css"/>  
+     <link rel="stylesheet" href="./style.css"/>
+     <link rel="stylesheet" href="./reset.css"/>  
 <head>
     <meta charset="utf-8">
     <title> Lab.11 </title>
 </head>
 <body>
-<!--//=================================/MAIN ELEMENT BEGINS/=================================//-->
-<!--// this element will be the container for this project, so don't worry about it //-->
-<main id="fandomHandler">
-   <h1 class="title" style= "background-color: #fff; width: 670px; height: 70px; margin-left:4px; line-height: 3.7; padding: 10px; border-radius: 10px;"> Fandom BusMall </h1>
-   <header id="fandomHeader">
-       <div id="one" style= "float: left; padding: 3px; ">
-           <p id="name-one">  </p>
-        <img id="pic-one" style= "border: #000 1px solid ; border-radius: 15px;">
-           <p id="sub-one">  </p>
-       </div>
-       <div id="two" style= "float: left; padding: 3px; ">
-           <p id="name-two">  </p>   
-        <img id="pic-two" style= "border: #000 1px solid; border-radius: 15px;">
-           <p id="sub-two">  </p>
-       </div>
-       <div id="three" style= "float:left; padding: 3px; ">
-           <p id="name-three">  </p>    
-        <img id="pic-three" style= "border: #000 1px solid; border-radius: 15px;">
-           <p id="sub-three">  </p>
-       </div>
-       <div id="four" style= "float:left; padding: 3px; ">
-           <p id="name-four">  </p>   
-        <img id="pic-four" style="border: #000 1px solid; border-radius: 15px;">
-           <p id="sub-four">  </p>
-       </div>
-   </header>
-<!--//=================================/MAIN CONTENTS/=================================//-->
-<!--// fandomAlb(um) is where our 4 images will be held, resultsArea will appear on final click //-->
-<section id="fandomAlb">
+
+    <header>
+        <h1> DESSERT MALL</header>
+    </header>
+
+ <main>
 
 
-</section>
-<section>
-    <aside id="resultsArea">
+    <h1>Survery!</h1>
 
-    </aside>
-</section>
-<!--// fandomFooter will hold the body of text for now //-->  
-<footer id="fandomFooter">
-    <button id='fanbutton'>
+    <div id="imageBlock">
+      <div id="imageContainer">
+        <div id="imageGroupContainer">
+          <p>Which of the following sweet treats are you likely to buy?</p>
+          <img class="imageGroup" id="imageSelectionOne" alt="" />
+          <img class="imageGroup" id="imageSelectionTwo" alt="" />
+          <img class="imageGroup" id="imageSelectionThree" alt="" />
+        </div>
+      </div>
+    </div>
 
-    </button>
-<section id="">
+ <div id="votingcon">
+ <canvas id="voting-chart" width="700px" height="300px"></canvas>
+ </div>
 
+ <footer> Dessert Mall 2021 </footer>
 
-</section>
-</footer>
 </main>
-<!--//=================================/MAIN ELEMENT ENDS/=================================//-->
 </body>
-    <script src="script.js" charset="utf-8"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="script.js"></script>
 </html>

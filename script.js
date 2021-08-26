@@ -1,106 +1,188 @@
-// do the sanity test.
-console.log('sanity');
-// styling use DOM Manipulation & reference
-const body = document.querySelector('body');
-body.style.backgroundColor = 'darkseagreen';
+'use strict'
 
-// constructor & functionality
+let imageSelectionOne = document.getElementById('imageSelectionOne');
+let imageSelectionTwo = document.getElementById('imageSelectionTwo');
+let imageSelectionThree = document.getElementById('imageSelectionThree');
+let listOfData = document.getElementById('listOfData');
 
-// constructor will create images
+let imageArray=[];
+let maxClicks = 25;
+let totalClicks = 0;
+let imageUsed = [1, 2, 3, 4, 5, 6];
+let showingList = false;
+let nameArray = [];
+let voteArray =[];
+let finalChart;
 
-// image collection
+// begin constructor
+function ItemImage(name){
+ this.name = name;
+ this.filepath = `img/${name}.jpg`;
+ this.timesShown = 0;
+ this.timesSelected = 0;
+ imageArray.push(this);
+}
 
-// array for images
+// new images
+new ItemImage('1');
+new ItemImage('2');
+new ItemImage('3');
+new ItemImage('4');
+new ItemImage('5');
+new ItemImage('6');
+new ItemImage('7');
+new ItemImage('8');
+new ItemImage('9');
+new ItemImage('10');
+new ItemImage('11');
+new ItemImage('12');
+new ItemImage('13');
+new ItemImage('14');
+new ItemImage('15');
+new ItemImage('16');
+new ItemImage('17');
+new ItemImage('18');
+new ItemImage('19');
+new ItemImage('20');
+new ItemImage('21');
 
-// array for objects
+// data and fucntion
+var data = {
+ labels: nameArray,
+ datasets: [{
+    label: 'Results',
+    data: voteArray,
+    backgroundColor: [
+      '#B18ABD',
+      '#F6E8DE',
+      '#FEC8D8',
+      '#D4E2ED',
+      '#C9DECE',
 
+      '#B18ABD',
+      '#F6E8DE',
+      '#FEC8D8',
+      '#D4E2ED',
+      '#C9DECE',
 
-// adding the math.floor() to trigger the randomizer, make sure between the 4 images - no duplicates
-function beginFandom() {// pick an object from the index, set up your loops
-   oneFandom = math.floor(math.random() * fandomObjects.length);
- 
+      '#B18ABD',
+      '#F6E8DE',
+      '#FEC8D8',
+      '#D4E2ED',
+      '#C9DECE',
 
+      '#B18ABD',
+      '#F6E8DE',
+      '#FEC8D8',
+      '#D4E2ED',
+      '#C9DECE',
 
-
- //add a loop for each picture potentially
- // make click-a-thon til calculations are completed
- // results will be given on final click, log in console
- // implement an onclick display, giving access to the button
- // that button will upon click will trigger a (potential) onload event
- // when onload is triggered, load in a graph of their results.
- // 
- //
- //
- //
- //
- //
- // START CHARTS. JS HERE
-   
-
-   
-// the start of the class, holder of my objects that will be applied to my click-y image-y - beginning to get data worth logging.
-
-/*class fandomAlbum {
-    clicks = 0;  // keep track of user clicks for results
-    optionShown = 0; // totalling how many times the image was shown
-    constructor(name, sub, imgSrc) {
-       this.name = name;
-       this.sub = sub;
-       this.imgSrc = imgSrc;
+      '#B18ABD',
+      '#F6E8DE',
+      '#FEC8D8',
+    ],
+    hoverBackgroundColor: [
+      '#FCE7BA', '#FCE7BA', '#FCE7BA', '#FCE7BA',
+      '#FCE7BA', '#FCE7BA', '#FCE7BA', '#FCE7BA',
+      '#FCE7BA', '#FCE7BA', '#FCE7BA', '#FCE7BA', 
+      '#FCE7BA', '#FCE7BA', '#FCE7BA', '#FCE7BA',
+      '#FCE7BA', '#FCE7BA', '#FCE7BA', '#FCE7BA',
+      '#FCE7BA', '#FCE7BA' 
+    ]
+ }]
+};
+function drawChart() {
+ let ctx = document.getElementById('voting-chart').getContext('2d');
+ finalChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: false,
+      animation: {
+        duration: 1000,
+        easing: 'easeOutElastic'
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          max: 20,
+          min: 0,
+          stepSize: 1.0
+        }
+      }]
+    }
+ });
+ imageSelectionOne.removeEventListener('click', handleImageSelection);
+ imageSelectionTwo.removeEventListener('click', handleImageSelection);
+ imageSelectionThree.removeEventListener('click', handleImageSelection);
+}
+// the local storage functionality
+function checkLocalStorage(){
+ if (localStorage.imageArrayStorage) {
+    let retrievedImageArrayStorage = localStorage.getItem('imageArrayStorage');
+    let parsedImageArrayStorage = JSON.parse(retrievedImageArrayStorage);
+    imageArray = parsedImageArrayStorage;
+    showRandomImage(imageSelectionOne);
+    showRandomImage(imageSelectionTwo);
+    showRandomImage(imageSelectionThree);
+ } else {
+    showRandomImage(imageSelectionOne);
+    showRandomImage(imageSelectionTwo);
+    showRandomImage(imageSelectionThree);
  }
 }
-// variables that'll help us in collecting data
-let one = null;
-let two = null;
-let three = null;
-let four = null;
-let totalClicks = 0;
-const limitedClicks =0; 
+// creating the storage
+function createLocalStorage(){
+ let stringifiedImageArray = JSON.stringify(imageArray);
+ localStorage.setItem('imageArrayStorage', stringifiedImageArray);
+}
+// show images
+function showRandomImage(socketEl){
+ // generate a random number
+ let randomIndex = Math.floor(Math.random() * imageArray.length);
+ while (imageUsed.includes(randomIndex)){
+    randomIndex = Math.floor(Math.random() * imageArray.length);
+ }
+ // get a src
+ socketEl.src = imageArray[randomIndex].filepath;
+ // assign the alt
+ socketEl.alt = imageArray[randomIndex].name;
+ // increment times shown
+ imageArray[randomIndex].timesShown++;
+ // Replaces items in used image array
+ imageUsed.shift();
+ imageUsed.push(randomIndex);
+}
+function chartData(){
+ for (let i=0; i<imageArray.length; i++){
+    nameArray.push(imageArray[i].name);
 
-// this index will holw 20 pictures
-let fandomObjects = [
-   new fandomAlbum('Uzu','MHA','media/images/2.jpg'),
-   new fandomAlbum('Maki','MHA','media/images/3.png'),
-   new fandomAlbum('Maki','MHA','media/images/4.png'),
-   new fandomAlbum('Uzu', 'MHA', 'media/images/5.jpg')
-];
+    voteArray.push(imageArray[i].timesSelected);
+ }
+}
+// handler
+function handleImageSelection(event){
+ console.log(event.target.alt);
+ totalClicks++;
 
-// using DOM by creating the 4 holders-of-the-apoc
-// set one
-   let nameOne = document.getElementsByClassName('name-one');
-   let picOne = document.getElementById('pic-one');
-   let subOne = document.getElementById('sub-one');
-// set two
-   let nameTwo = document.getElementsByClassName('name-two');
-   let picTwo = document.getElementById('pic-two');
-   let subTwo = document.getElementById('sub-two');
-// set three
-   let nameThree = document.getElementsByClassName('name-three');
-   let picThree = document.getElementById('pic-three');
-   let subThree = document.getElementById('sub-three');
-// set four
-   let nameFour = document.getElementsByClassName('name-four');
-   let picFour = document.getElementById('pic-four');
-   let subFour = document.getElementById('sub-four');
-
-// give a value to my Objects using a function.  
-for (let otaku = 0; otaku < fandomObjects.length; otaku++) {
-    console.log(fandomObjects[0]);
-}  
-
-
-// set for picture one
-picOne.src = fandomObjects[0].imgSrc;
-subOne.innerText = fandomObjects[0].name;
-// set for picture two
-picTwo.src = fandomObjects[1].imgSrc;
-subTwo.innerText = fandomObjects[1].name;
-// set for picture three
-picThree.src = fandomObjects[2].imgSrc;
-subThree.innerText = fandomObjects[2].name;
-// set for picture four
-picFour.src = fandomObjects[3].imgSrc;
-subFour.innerText = fandomObjects[3].name;
-================================================== OLD CODE  8/25
-
-*/ 
+ for (let i=0; i < imageArray.length; i++) {
+    if(event.target.alt === imageArray[i].name) {
+      imageArray[i].timesSelected++;
+    }
+ }
+ if (totalClicks < maxClicks) {
+    showRandomImage(imageSelectionOne);
+    showRandomImage(imageSelectionTwo);
+    showRandomImage(imageSelectionThree);
+ } else {
+    chartData();
+    drawChart();
+    createLocalStorage();
+ }
+}
+// Event listener
+imageSelectionOne.addEventListener('click', handleImageSelection);
+imageSelectionTwo.addEventListener('click', handleImageSelection);
+imageSelectionThree.addEventListener('click', handleImageSelection);
+checkLocalStorage();
